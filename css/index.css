@@ -1,0 +1,478 @@
+*{
+	margin:0;
+	padding:0;
+}
+body{
+	background:#eee;
+}
+
+
+/*************************导航********************************/
+header{
+	width:100%;
+	padding:10px;
+	height:20px;
+	background:#f96;
+	line-height:20px;
+}
+header .list{
+	float:left;
+	margin-left:60px;	
+}
+header .list a{
+	text-decoration:none;
+	color:#fff;
+	font-size:14px;
+}
+header .first a{
+	font-weight:bold;
+	font-size:16px;
+}
+header .first span{
+	display:inline-block;
+	font-weight:normal;
+	width:16px;
+	height:16px;
+	line-height:16px;
+	background:#FFF;
+	color:#F66;
+	text-align:center;
+	border:1px solid #fff;
+	margin-right:5px;
+	border-radius:10px;
+}
+
+
+/**************************新建问卷页****************************/
+#new-built{
+	width:80%;
+	background:#fff;
+	margin:0 auto;
+	margin-top:50px;
+	border:1px solid #ccc;
+}
+#new-built button{
+	display:block;
+	width:160px;
+	height:50px;
+	background:#f96;
+	border:1px solid #ccc;
+	margin:150px auto;
+	line-height:50px;
+	text-align:center;
+	font-weight:bold;
+	font-size:18px;
+	color:#fff;
+}
+#new-built button span{
+	font-size:24px;
+}
+
+
+/****************************问卷列表页***************************/
+#list-page{
+	width:75%;
+	margin:0 auto;
+	margin-top:50px;
+	font-size:14px;
+	color:#333;
+}
+#list-page .head{
+	padding:10px;
+	height:25px;
+	overflow:hidden;
+}
+#list-page .head div{
+	float : left;
+	width : 9%;
+	text-align:center;
+	margin-right:4%;
+	line-height:25px;
+}
+
+#list-page .head div button{
+	width:90px;
+	height:30px;
+	line-height:10px;
+	padding:5px;
+	background:#f96;
+	border:1px solid #eee;
+	font-size:14px;
+	color:#fff;
+	float:right;
+	cursor:pointer;
+}
+
+#list-page .body{
+	background:#fff;
+	padding:10px;
+}
+#list-page .body .qn-list{
+	overflow:hidden;
+	padding:10px;
+	border-bottom:1px solid #ccc;
+	position:relative;
+	top:0;
+	left:0;
+}
+#list-page .body .qn-list input{
+    position:absolute;
+	top:42%;
+	left:1%;
+}
+#list-page .body .qn-list:hover{
+	background:#fc9;
+}
+#list-page .body .qn-list div{
+	text-align:center;
+	float : left;
+	width : 15%;
+	text-align:center;
+	line-height:35px;	
+}
+#list-page .body .qn-list div.title, #list-page .head div.titText{
+	width : 20%;
+}
+#list-page .body .qn-list div.operation, #list-page .head div.opeText{
+	width : 45%;
+}
+#list-page .body .qn-list button,#list-page .foot button{
+	width:70px;
+	height:30px;
+	line-height:20px;
+	font-size:14px;
+	color:#333;
+	background:#fff;
+	border:1px solid #ccc;
+	margin-left:5px;
+	cursor:pointer;
+}
+
+#list-page .foot{
+	background:#fff;
+	padding:10px 20px 30px 20px;
+}
+#list-page .foot span{
+	margin-left:10px;
+	margin-right:10px;
+}
+
+
+/**************************问卷编辑页面***************************/
+#edit-page{
+	width:77%;
+	margin:0 auto;
+	margin-top:50px;
+	background:#fff;
+	padding:20px;
+}
+#edit-page .head{
+	width:90%;
+	margin:20px auto;
+	padding:10px;
+	text-align:center;
+}
+#edit-page .head:hover{
+	background:#fc9;
+}
+
+#edit-page .body{
+	border-top:2px solid #ccc;
+	border-bottom:2px solid #ccc;
+	width:95%;
+	margin:0 auto;
+	padding:20px;
+	color:#333;
+}
+/*问题列表样式*/
+#edit-page .body .problem{
+	width:95%;
+	margin:0 auto;
+	margin-bottom:20px;
+	padding:10px;
+}
+#edit-page .body .problem .box{
+	padding:10px;
+	margin-bottom:10px;
+	overflow:hidden;
+	line-height:30px;
+}
+#edit-page .body .problem .box div{
+	display:inline;
+	padding:10px;
+}
+/*#edit-page .body .problem div:hover{
+	background:#fc9;
+}*/
+#edit-page .body .problem .box input,textarea{
+	border:1px solid #ccc;
+	margin-left:2em;
+}
+#edit-page .body .problem .box p{/*默认隐藏,鼠标移上去显示,点击添加新的选项*/
+	border:1px dotted #ccc;
+	text-align:center;
+	font-size:18px;
+	display:none;
+	cursor:pointer;
+}
+#edit-page .body .problem .box span{/*默认隐藏,鼠标移到父元素上显示,点击实现不同的操作*/
+	float:right;
+	width:50px;
+	line-height:30px;
+	font-size:14px;
+	display:none;
+	cursor:pointer;
+}
+#edit-page .body .problem .box a{
+	display:none;
+	color:#f66;
+	font-weight:bold;
+	font-size:16px;
+	margin-left:10px;
+	cursor:pointer;
+}
+#edit-page .body .problem .box .num{
+	float:none;
+	display:inline;
+}
+
+/*添加问题按钮样式*/
+#edit-page .body .add_problem {
+	width:95%;
+	margin:0 auto;
+	border:1px solid #ccc;
+}
+#edit-page .body .add_problem .form{
+	display:none;
+	padding:10px;
+	text-align:center;
+}
+#edit-page .body .add_problem .form button{
+	width:100px;
+	height:30px;
+	background:#eee;
+	border:1px solid #ccc;
+	color:#666;
+	border-radius:5px;
+	cursor:pointer;
+}
+#edit-page .body .add_problem .form button:hover{
+	background:#f96;
+	color:#fff;
+}
+
+#edit-page .body .add_problem .add{
+	cursor:pointer;
+	height:50px;
+	background:#eee;
+	margin:0 auto;
+	padding:10px;
+	text-align:center;
+	line-height:50px;
+	font-size:16px;
+}
+#edit-page .body .add_problem .add span{
+	font-size:24px;
+}
+
+/*新建问题页面页脚样式*/
+#edit-page .foot{
+	width:80%;
+	margin:20px auto;
+	padding:10px;
+	font-size:16px;
+	color:#666;
+	overflow:hidden;
+}
+#edit-page .foot .deadline{
+	float:left;
+	width:320px;
+	margin:0 auto;
+	text-align:left;
+}
+#edit-page .foot input{
+	display:inline-block;
+	width:180px;
+	height:20px;
+	border:1px solid #ccc;
+	padding:5px;
+	color:#666;
+	font-size:18px;
+	line-height:20px;
+	font-family:serif;
+}
+#edit-page .foot button{
+	float:right;
+	margin-right:30px;
+	width:100px;
+	height:30px;
+	background:#fff;
+	border:1px solid #ccc;
+	border-radius:5px;
+	cursor:pointer;
+	color:#666;
+	line-height:30px;
+	font-size:14px;
+}
+#edit-page .foot button:hover{
+	background:#f96;
+	color:#fff;
+}
+/***********************问卷填写页面*****************************/
+#qn-page{
+	width:77%;
+	margin:50px auto;
+	background:#fff;
+	padding:30px 20px 20px 20px;
+}
+#qn-page .head{
+	text-align:center;
+	line-height:30px;
+	padding:10px;
+	color:#666;
+	font-family:"宋体";
+}
+#qn-page .body{
+	width:95%;
+	margin:10px auto;
+	padding:10px;
+	border-top:2px solid #ccc;
+	border-bottom:2px solid #ccc;
+	color:#333;
+}
+#qn-page .body .problem {
+	padding:10px;
+}
+#qn-page .body .problem div{
+	padding:10px 20px;
+	line-height:30px;
+	font-family:"宋体";
+}
+#qn-page .body .problem div:hover{
+	background:#fc9;
+}
+#qn-page .body div span{
+	margin-right:5px;
+}
+#qn-page .body div input{
+	margin-right:10px;
+	margin-left:15px;
+}
+#qn-page .foot{
+	padding:20px;
+	text-align:center;
+}
+#qn-page .foot button{
+	width:100px;
+	height:30px;
+	background:#f96;
+	color:#fff;
+	font-size:16px;
+	line-height:30px;
+	border:1px solid #ccc;
+	font-family:"宋体";
+	cursor:pointer;
+}
+
+/***********************问卷数据统计页面*****************************/
+#result-page{
+	width:77%;
+	margin:50px auto;
+	background:#fff;
+	padding:30px 20px 20px 20px;
+}
+#result-page .head{
+	text-align:center;
+	overflow:hidden;
+	line-height:30px;
+	color:#666;
+	font-family:"宋体";
+}
+#result-page .head span{
+	float:left;
+	cursor:pointer;
+}
+#result-page .head p{
+	font-size:14px;
+	color:#666;
+}
+
+#result-page .body{
+	width:95%;
+	margin:10px auto;
+	padding:20px;
+	border-top:2px solid #ccc;
+	border-bottom:2px solid #ccc;
+}
+#result-page .body .box{
+	border:2px solid #ccc;
+	margin-bottom:10px;
+	padding:20px 20px 10px 20px;
+	line-height:30px;
+	overflow:hidden;
+	color:#333;
+	font-family:"宋体";
+}
+#result-page .body .box .data{
+	border:none;
+	padding:10px;
+	width:45%;
+	float:right;
+}
+#result-page .body .box div{
+	margin-left:25px;
+}
+
+#result-page .body .data span{
+	display:inline-block;
+	border:1px solid #ccc;
+	width:90%;
+	height:10px;
+	margin-top:10px;
+	position:relative;
+}
+#result-page .body .data span span{
+	position:absolute;
+	height:8px;
+	background:#f96;
+	top:-10px;
+	left:0;
+}
+#result-page .body .data span .item1{
+	width:85%;
+}
+#result-page .body .data span .item2{
+	width:15%;
+}
+#result-page .body .data span .item3{
+	width:68%;
+}
+#result-page .body .data span .item4{
+	width:32%;
+}
+#result-page .body .data span .t1{
+	width:70%;
+}
+
+/******饼状图******/
+#result-page .body .data div{
+	width:100px;
+	height:100px;
+	margin:0 50px;
+	border-radius:100px;
+}
+
+#result-page .foot{
+	padding:20px;
+	text-align:center;
+}
+#result-page .foot button{
+	width:100px;
+	height:30px;
+	background:#f96;
+	color:#fff;
+	font-size:16px;
+	line-height:20px;
+	border:1px solid #ccc;
+	cursor:pointer;
+}
