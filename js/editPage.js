@@ -313,6 +313,7 @@ define(["util","calendar","layer"],function(util,calendar,layer){
 						var input = document.createElement("input");
 						if(this.storage[i].type == 1) input.type="radio";
 						if(this.storage[i].type == 2) input.type="checkbox";
+						input.name="item";
 						div.appendChild(input);
 						//单选项
 						var entry = document.createElement("div");
