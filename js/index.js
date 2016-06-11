@@ -15,25 +15,5 @@ require(['newBuilt','listPage','editPage'],function(newBuilt,listPage,editPage){
 			list.refresh();
 		}
 	}
-	     
-		 
-	/*this.storage = [ // 每份问卷的数据存储格式
-		  {
-			type : 1,
-			title : "单选题",
-			item : ["选项1","选项2"] 							
-		  }
-		  {
-			type : 2,
-			title : "多选题",
-			item : ["选项1","选项2","选项3","选项4"]							
-		  }
-		  {
-			type : 3,
-			title : "文本题",
-			
-		  }
-		];
-	*/
 });
 
