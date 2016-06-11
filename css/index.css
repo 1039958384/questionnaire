@@ -332,6 +332,16 @@ header .first span{
 	color:#666;
 	font-family:"宋体";
 }
+#qn-page  p{
+	font-size:18px;
+	line-height:18px;
+	text-align:center;
+	color:#666;
+}
+#qn-page  p span{
+	color:red;
+	font-weight:bold;
+}
 #qn-page .body{
 	width:95%;
 	margin:10px auto;
@@ -353,6 +363,12 @@ header .first span{
 }
 #qn-page .body div span{
 	margin-right:5px;
+}
+#qn-page .body div span span{
+	color:red;
+	font-weight:bold;
+	font-size:18px;
+	line-height:18px;
 }
 #qn-page .body div input{
 	margin-right:10px;
