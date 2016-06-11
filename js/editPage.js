@@ -2,6 +2,24 @@
 define(["util","calendar","layer"],function(util,calendar,layer){
 	
 	//根据storage数组,动态渲染题目列表,增删改操作只是修改的storage
+	/*this.storage = [ // 每份问卷的数据存储格式
+		  {
+			type : 1,
+			title : "单选题",
+			item : ["选项1","选项2"] 							
+		  },
+		  {
+			type : 2,
+			title : "多选题",
+			item : ["选项1","选项2","选项3","选项4"]							
+		  },
+		  {
+			type : 3,
+			title : "文本题",
+			
+		  }
+		];
+	*/
 	
 	function Edit() {  
 	    //判断是否有参数传入
@@ -313,7 +331,7 @@ define(["util","calendar","layer"],function(util,calendar,layer){
 						var input = document.createElement("input");
 						if(this.storage[i].type == 1) input.type="radio";
 						if(this.storage[i].type == 2) input.type="checkbox";
-						input.name="item";
+						input.name="item"+i;
 						div.appendChild(input);
 						//单选项
 						var entry = document.createElement("div");
@@ -505,14 +523,6 @@ define(["util","calendar","layer"],function(util,calendar,layer){
 				});
 			});
 		},
-		
-		
-		
-		
-		//-------------------定义verify()用来验证问卷是否正常编辑过----------------//
-		
-		
-		
 		
 		//将this.head、this.deadline、this.state、this.storage保存在localStorage中
 		store : function(){
