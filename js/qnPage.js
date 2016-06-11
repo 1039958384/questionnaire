@@ -8,44 +8,8 @@ define(["util","layer"],function(util,layer){
 	function Qn(option){//传入num,标志这是第几个问卷
 		this.head = option.head;
 		this.state = option.state;
-		this.probList = option.probList;
-		this.storage = [];
-		
-		/*this.storage的格式
-		this.storage=[
-			{   //单选
-			  0:1,
-              1:0,
-              2:0			  
-			},
-			{    //多选
-			  0:1,
-              1:1,
-              2:0,
-              3:1			  
-			},
-			{    //文本
-			  true(填)/false(未填)  
-			} 
-		]
-		
-		*/
-		
-		/*
-		   存储用户对问卷中每个问题的填写情况
-		   qn-num-users=[  //-----查看数据页根据该数据渲染数据图
-			   {  //(单、多选:选择不同选项的人数)
-				 0: 3,
-				 1: 1,
-				 2: 2,
-				 3: 0		
-			   },
-			   {  //(文本题:填或未填的人数)
-				 yes : 1,
-				 no : 4  
-			   }
-		    ]
-		*/   
+		this.probList = option.probList; 
+		this.flag = false;//单、多选题目用户都填写了时，变为true
 	};
 	
 	Qn.prototype = {
@@ -54,6 +18,7 @@ define(["util","layer"],function(util,layer){
 			var main = document.getElementById("content");
 			main.innerHTML = '<div id="qn-page">'+
 			                     '<h2 class="head">'+ this.head +'</h2>'+
+								 '<p>标有<span> * </span>的题目为必做题</p>'+
 								 '<div class="body">'+
 									'<div class="problem">'+
 									'</div>'+
@@ -77,6 +42,9 @@ define(["util","layer"],function(util,layer){
 				div.appendChild(QNum);
 				var title = document.createElement("span");
 				title.innerHTML = this.probList[i].title;
+				if(this.probList[i].type!=3){
+					title.innerHTML=title.innerHTML+'<span> *</span>';
+				}
 				div.appendChild(title);
 				var br = document.createElement("br");
 				div.appendChild(br);
@@ -87,6 +55,7 @@ define(["util","layer"],function(util,layer){
 						var input = document.createElement("input");
 						if(this.probList[i].type == 1) input.type="radio";
 						if(this.probList[i].type == 2) input.type="checkbox";
+						input.name="item"+i;
 						div.appendChild(input);
 						//单选项
 						var entry = document.createElement("span");
@@ -115,28 +84,52 @@ define(["util","layer"],function(util,layer){
 						callback : function(){}
 					});
 				}else{
-					//得到所有input和textarea,判断input.check==true? 或textarea.value.trim().length==0?
-					//根据this.probList的type和this.probList[i].item记录
-					
+				    //验证单、多选题是否都做了	
+					_this.verify();
 					//当有单、多选没做时，作出提示
-					
-					//单、多选都做了时，提示提交成功并把用户选项记录到this.storage中
-					layer.layerOut({
-						head : "提示",
-						content : "提交成功！",
-						callback : function(){
-							//this.storage
-					        
-					        window.location.hash = "#listPage";
-						}
-					});
-					
+					if(_this.flag){
+						layer.layerOut({
+							head : "提示",
+							content : "请完整填写问卷！",
+							callback : function(){}
+						});
+					}else{//单、多选都做了时，提示提交成功
+						layer.layerOut({
+							head : "提示",
+							content : "提交成功！",
+							callback : function(){
+								//this.storage
+								
+								window.location.hash = "#listPage";
+							}
+						});
+					}	
 				}
 			});
+		},
+		
+		//提交前验证必做题目是否完成  //判断是否存在所有input.checked 都不为 true
+		verify : function(){
+			var box = document.querySelectorAll(".body .problem .box");
+			var c =[];
+			for (var i=0; i < box.length;i++){
+				if(box[i].querySelectorAll("input").length != 0){
+					var input = box[i].querySelectorAll("input");
+					var count=0;
+				    for (var j=0; j<input.length ; j++){
+						if(input[j].checked == true){
+							count++;
+						}
+					}
+					c.push(count);
+				}
+			}
+			if(c.indexOf(0) != -1){//存在未做的必做题目
+				this.flag = true;
+			}else{
+				this.flag=false;
+			}
 		}
-	   
-        //点击input或文本框时，记录下用户的选择以及文本框中是否有内容(文本题有没有做) 
-        //并将用户选择存入Storage中,在查看数据页面使用		
 	}
 	
 	
