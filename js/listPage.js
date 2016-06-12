@@ -239,10 +239,12 @@ define(["util","layer","editPage","qnPage","resultPage"],function(util,layer,edi
 
 			//点击删除按钮时,判断哪些问卷的复选框被选中,并删除选中的问卷
 			util.addHandler(delBtn,"click",function(){
+				var count=0;
 				for(var i=0;i<delSingle.length;i++){
 				    if(delSingle[i].checked == true){
-						_this.deleteOne(i);
+						_this.deleteOne(i-count);//删除了一个
 						_this.refresh();
+						count++;
 					}
 			    }
 			});	
