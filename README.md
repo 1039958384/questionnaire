@@ -1,6 +1,6 @@
 ##微型调查问卷管理平台
 
-[questionnaire Demo](http://1039958384.github.io/questionnaire/ "悬停显示")
+[questionnaire Demo](http://1039958384.github.io/questionnaire/src/ "悬停显示")
 
 ###问卷平台任务描述
 
