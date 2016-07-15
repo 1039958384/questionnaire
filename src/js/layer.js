@@ -54,13 +54,13 @@ define("layer",["util"],function(util){
 					var top=event.clientY-diffY;
 					if(left<0){//浏览器视口的左边缘
 						left=0;
-					} else if(left>util.getViewport().width-_this.offsetWidth){//浏览器视口的右边缘
-						left=util.getViewport().width-_this.offsetWidth;
+					} else if(left>util.getViewport().width + util.scroll().left -_this.offsetWidth){//浏览器视口的右边缘
+						left=util.getViewport().width + util.scroll().left-_this.offsetWidth;
 					}
 					if(top<0){//浏览器视口的上边缘
 						top=0;
-					}else if(top>util.getViewport().height-_this.offsetHeight){//浏览器视口的下边缘
-						top=util.getViewport().height-_this.offsetHeight;
+					}else if(top>util.getViewport().height + util.scroll().top -_this.offsetHeight){//浏览器视口的下边缘
+						top=util.getViewport().height+ util.scroll().top-_this.offsetHeight;
 					}
 					_this.style.left=left+"px";
 					_this.style.top=top+"px"; //只根据左上角移动，因为点一下oDiv的CSS效果马上改变
